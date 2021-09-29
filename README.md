@@ -7,7 +7,7 @@ On "chapters" mode the developer can define distinct chapters (by providing thei
 ## API
 To use the Wheel Player you need to import it
 ```javascript
-const WheelPlayer = import('@kissmybutton/motorcortex-wheel-player');
+const WheelPlayer = import('@donkeyclip/motorcortex-scroller');
 ```
 
 and then you just instantiate a new Player object passing options:
@@ -54,7 +54,7 @@ const Player = new WheelPlayer({
 | progressBar | (optional, default is {display: true, position: 'right', color: 'purple'}). Progress bar visualises the progress of the Clip's execution. By default is positioned on the right and it's visible |
   
 ## Demo
-https://kissmybutton.github.io/motorcortex-scroller/demo/
+https://donkeyclip.github.io/motorcortex-scroller/demo/
 
 - On mobile: Swipe left or right to move between chapters
 - On desktop devices: use your mouse wheel
