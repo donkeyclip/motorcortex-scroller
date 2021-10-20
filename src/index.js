@@ -95,11 +95,12 @@ class Player {
       `${cssAttrs} position:absolute; background: ${options.color};`
     );
     this.host.appendChild(scrollbarDiv);
-    this.clip.subscribe(`${prefix}_${new Date().getTime()}`, (
-      ms /*, state*/
-    ) => {
-      scrollbarDiv.style[variable] = `${(100 * ms) / this.clip.duration}%`;
-    });
+    this.clip.subscribe(
+      `${prefix}_${new Date().getTime()}`,
+      (ms /*, state*/) => {
+        scrollbarDiv.style[variable] = `${(100 * ms) / this.clip.duration}%`;
+      }
+    );
   }
 
   _touchstart(ev) {
