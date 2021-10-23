@@ -8,7 +8,7 @@
   "author": "KissMyButton PC (kissmybutton.gr) <opensource@kissmybutton.gr>",
   "license": "MIT",
   "engines": {
-    "node": ">=10"
+    "node": ">=12"
   },
   "scripts": {
     "lint": "eslint -c .eslintrc src/**/*.js",
