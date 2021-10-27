@@ -1,11 +1,11 @@
 {
-  "name": "@kissmybutton/motorcortex-scroller",
+  "name": "@donkeyclip/motorcortex-scroller",
   "version": "1.1.7",
   "main": "dist/motorcortex-scroller.cjs.js",
   "module": "dist/motorcortex-scroller.esm.js",
   "browser": "dist/motorcortex-scroller.umd.js",
-  "repository": "https://github.com/kissmybutton/motorcortex-scroller",
-  "author": "KissMyButton PC (kissmybutton.gr) <opensource@kissmybutton.gr>",
+  "repository": "https://github.com/donkeyclip/motorcortex-scroller",
+  "author": "Donkeyclip PC (donkeyclip.com ) <opensource@donkeyclip.gr>",
   "license": "MIT",
   "engines": {
     "node": ">=12"
@@ -21,7 +21,8 @@
     "test": "HERE GOES YOUR TEST TASK",
     "test:prod": "npm run lint",
     "commit": "git-cz",
-    "prebuild": "rimraf dist"
+    "prebuild": "rimraf dist",
+    "prepare": "husky install"
   },
   "keywords": [
     "motorcortex",
@@ -50,15 +51,15 @@
     "@babel/preset-env": "7.15.8",
     "@commitlint/cli": "13.2.1",
     "@commitlint/config-conventional": "13.2.0",
-    "@kissmybutton/motorcortex": "7.3.0",
-    "@kissmybutton/motorcortex-flubber": "1.1.9",
+    "@donkeyclip/motorcortex": "7.5.5",
+    "@donkeyclip/motorcortex-flubber": "1.1.10",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-json": "4.1.0",
     "@rollup/plugin-node-resolve": "13.0.6",
     "@size-limit/preset-big-lib": "6.0.3",
     "babel-loader": "8.2.3",
-    "browserslist": "4.17.4",
+    "browserslist": "4.17.5",
     "caniuse-lite": "1.0.30001271",
     "commitizen": "4.2.4",
     "concurrently": "6.3.0",
@@ -73,7 +74,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-promise": "5.1.1",
-    "husky": "4.3.8",
+    "husky": "^7.0.0",
     "lint-staged": "11.2.6",
     "prettier": "2.4.1",
     "rimraf": "3.0.2",
@@ -85,12 +86,6 @@
     "webpack-dev-server": "4.3.1"
   },
   "peerDependencies": {
-    "@kissmybutton/motorcortex": ">= 6.4.1 < 8"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
+    "@donkeyclip/motorcortex": "^7"
   }
 }
