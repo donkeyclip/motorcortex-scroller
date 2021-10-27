@@ -1,6 +1,6 @@
-import MC from "@kissmybutton/motorcortex";
+import MC from "@donkeyclip/motorcortex";
 const TimeCapsule = new MC.TimeCapsule();
-const prefix = "@kissmybutton/scrollbar_player";
+const prefix = "@donkeyclip/scrollbar_player";
 
 class Player {
   /**

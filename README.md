@@ -62,7 +62,5 @@ https://donkeyclip.github.io/motorcortex-scroller/demo/
 ## License
 [MIT License](https://opensource.org/licenses/MIT)
 
+[<img src="https://presskit.donkeyclip.com/logos/donkey%20clip%20logo.svg" width=250></img>](https://donkeyclip.com)
 
-  
-  
-[![Kiss My Button](https://presskit.kissmybutton.gr/logos/kissmybutton-logo-small.png)](https://kissmybutton.gr)

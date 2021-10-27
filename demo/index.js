@@ -1,5 +1,5 @@
-import MC from "@kissmybutton/motorcortex";
-import MCFlubber from "@kissmybutton/motorcortex-flubber";
+import MC from "@donkeyclip/motorcortex";
+import MCFlubber from "@donkeyclip/motorcortex-flubber";
 import Player from "../dist/motorcortex-scroller.esm.js";
 const FlubberPlugin = MC.loadPlugin(MCFlubber);
 
