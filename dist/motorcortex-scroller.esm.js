@@ -41,7 +41,7 @@ function () {
 
 var objectGetOwnPropertyDescriptor = {};
 
-var fails$c = function (exec) {
+var fails$d = function (exec) {
   try {
     return !!exec();
   } catch (error) {
@@ -49,9 +49,9 @@ var fails$c = function (exec) {
   }
 };
 
-var fails$b = fails$c; // Detect IE8's incomplete defineProperty implementation
+var fails$c = fails$d; // Detect IE8's incomplete defineProperty implementation
 
-var descriptors = !fails$b(function () {
+var descriptors = !fails$c(function () {
   // eslint-disable-next-line es/no-object-defineproperty -- required for testing
   return Object.defineProperty({}, 1, {
     get: function () {
@@ -60,8 +60,19 @@ var descriptors = !fails$b(function () {
   })[1] != 7;
 });
 
+var fails$b = fails$d;
+var functionBindNative = !fails$b(function () {
+  var test = function () {
+    /* empty */
+  }.bind(); // eslint-disable-next-line no-prototype-builtins -- safe
+
+
+  return typeof test != 'function' || test.hasOwnProperty('prototype');
+});
+
+var NATIVE_BIND$1 = functionBindNative;
 var call$5 = Function.prototype.call;
-var functionCall = call$5.bind ? call$5.bind(call$5) : function () {
+var functionCall = NATIVE_BIND$1 ? call$5.bind(call$5) : function () {
   return call$5.apply(call$5, arguments);
 };
 
@@ -90,11 +101,12 @@ var createPropertyDescriptor$3 = function (bitmap, value) {
   };
 };
 
+var NATIVE_BIND = functionBindNative;
 var FunctionPrototype$1 = Function.prototype;
 var bind = FunctionPrototype$1.bind;
 var call$4 = FunctionPrototype$1.call;
-var uncurryThis$c = bind && bind.bind(call$4, call$4);
-var functionUncurryThis = bind ? function (fn) {
+var uncurryThis$c = NATIVE_BIND && bind.bind(call$4, call$4);
+var functionUncurryThis = NATIVE_BIND ? function (fn) {
   return fn && uncurryThis$c(fn);
 } : function (fn) {
   return fn && function () {
@@ -112,7 +124,7 @@ var classofRaw$1 = function (it) {
 
 var global$p = global$q;
 var uncurryThis$a = functionUncurryThis;
-var fails$a = fails$c;
+var fails$a = fails$d;
 var classof$4 = classofRaw$1;
 var Object$4 = global$p.Object;
 var split = uncurryThis$a(''.split); // fallback for non-array-like ES3 and non-enumerable old V8 strings
@@ -200,7 +212,7 @@ var engineV8Version = version;
 
 /* eslint-disable es/no-symbol -- required for testing */
 var V8_VERSION$2 = engineV8Version;
-var fails$9 = fails$c; // eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
+var fails$9 = fails$d; // eslint-disable-next-line es/no-object-getownpropertysymbols -- required for testing
 
 var nativeSymbol = !!Object.getOwnPropertySymbols && !fails$9(function () {
   var symbol = Symbol(); // Chrome 38 Symbol has incorrect toString conversion
@@ -301,9 +313,11 @@ var store$2 = sharedStore;
 (shared$3.exports = function (key, value) {
   return store$2[key] || (store$2[key] = value !== undefined ? value : {});
 })('versions', []).push({
-  version: '3.20.2',
+  version: '3.20.3',
   mode: 'global',
-  copyright: '© 2022 Denis Pushkarev (zloirock.ru)'
+  copyright: '© 2014-2022 Denis Pushkarev (zloirock.ru)',
+  license: 'https://github.com/zloirock/core-js/blob/v3.20.3/LICENSE',
+  source: 'https://github.com/zloirock/core-js'
 });
 
 var global$f = global$q;
@@ -407,8 +421,8 @@ var documentCreateElement = function (it) {
 };
 
 var DESCRIPTORS$6 = descriptors;
-var fails$8 = fails$c;
-var createElement = documentCreateElement; // Thank's IE8 for his funny defineProperty
+var fails$8 = fails$d;
+var createElement = documentCreateElement; // Thanks to IE8 for its funny defineProperty
 
 var ie8DomDefine = !DESCRIPTORS$6 && !fails$8(function () {
   // eslint-disable-next-line es/no-object-defineproperty -- required for testing
@@ -445,7 +459,7 @@ objectGetOwnPropertyDescriptor.f = DESCRIPTORS$5 ? $getOwnPropertyDescriptor$1 :
 var objectDefineProperty = {};
 
 var DESCRIPTORS$4 = descriptors;
-var fails$7 = fails$c; // V8 ~ Chrome 36-
+var fails$7 = fails$d; // V8 ~ Chrome 36-
 // https://bugs.chromium.org/p/v8/issues/detail?id=3334
 
 var v8PrototypeDefineBug = DESCRIPTORS$4 && fails$7(function () {
@@ -843,7 +857,7 @@ var copyConstructorProperties$1 = function (target, source, exceptions) {
   }
 };
 
-var fails$6 = fails$c;
+var fails$6 = fails$d;
 var isCallable$2 = isCallable$b;
 var replacement = /#|\.prototype\./;
 
@@ -1038,7 +1052,7 @@ var merge = function (array, left, right, comparefn) {
 
 var arraySort = mergeSort;
 
-var fails$5 = fails$c;
+var fails$5 = fails$d;
 
 var arrayMethodIsStrict$1 = function (METHOD_NAME, argument) {
   var method = [][METHOD_NAME];
@@ -1067,7 +1081,7 @@ var aCallable = aCallable$2;
 var toObject$2 = toObject$4;
 var lengthOfArrayLike$1 = lengthOfArrayLike$4;
 var toString = toString$1;
-var fails$4 = fails$c;
+var fails$4 = fails$d;
 var internalSort = arraySort;
 var arrayMethodIsStrict = arrayMethodIsStrict$1;
 var FF = engineFfVersion;
@@ -1189,7 +1203,7 @@ var objectKeys$1 = Object.keys || function keys(O) {
 var DESCRIPTORS = descriptors;
 var uncurryThis$1 = functionUncurryThis;
 var call = functionCall;
-var fails$3 = fails$c;
+var fails$3 = fails$d;
 var objectKeys = objectKeys$1;
 var getOwnPropertySymbolsModule = objectGetOwnPropertySymbols;
 var propertyIsEnumerableModule = objectPropertyIsEnumerable;
@@ -1274,7 +1288,7 @@ var isArray$2 = Array.isArray || function isArray(argument) {
 };
 
 var uncurryThis = functionUncurryThis;
-var fails$2 = fails$c;
+var fails$2 = fails$d;
 var isCallable = isCallable$b;
 var classof = classof$3;
 var getBuiltIn = getBuiltIn$4;
@@ -1362,7 +1376,7 @@ var arraySpeciesCreate$1 = function (originalArray, length) {
   return new (arraySpeciesConstructor(originalArray))(length === 0 ? 0 : length);
 };
 
-var fails$1 = fails$c;
+var fails$1 = fails$d;
 var wellKnownSymbol$1 = wellKnownSymbol$6;
 var V8_VERSION$1 = engineV8Version;
 var SPECIES = wellKnownSymbol$1('species');
@@ -1387,7 +1401,7 @@ var arrayMethodHasSpeciesSupport$1 = function (METHOD_NAME) {
 
 var $ = _export;
 var global$1 = global$q;
-var fails = fails$c;
+var fails = fails$d;
 var isArray = isArray$2;
 var isObject = isObject$7;
 var toObject = toObject$4;
