@@ -2,7 +2,7 @@
 
 **Table of Contents**
 
-- [MotorMortex-Scroller](#motorcortex-scroller)
+- [MotorCortex-Scroller](#motorcortex-scroller)
   - [Demo](#demo)
 - [Intro / Features](#intro--features)
 - [Getting Started](#getting-started)
