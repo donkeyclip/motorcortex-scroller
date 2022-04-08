@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/donkeyclip/motorcortex-scroller/compare/v1.1.7...v1.2.0) (2022-04-08)
+
+
+### Features
+
+* drop explorer 11 support ([4def408](https://github.com/donkeyclip/motorcortex-scroller/commit/4def408da63ab51917f0ccd088acbf7bbddfb130))
+* update compatibility with motorcortex ([3eee844](https://github.com/donkeyclip/motorcortex-scroller/commit/3eee8440a6903c790ee4b524c977157a625b2c4d))
+
+
+### Bug Fixes
+
+* delete commitlint.config.js ([494ddfa](https://github.com/donkeyclip/motorcortex-scroller/commit/494ddfa25064be879fe230559ec84aa9491f22aa))
+
 ### [1.1.7](https://www.github.com/donkeyclip/motorcortex-scroller/compare/v1.1.6...v1.1.7) (2021-10-27)
 
 
