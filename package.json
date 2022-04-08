@@ -74,6 +74,6 @@
     "webpack-dev-server": "4.8.1"
   },
   "peerDependencies": {
-    "@donkeyclip/motorcortex": "^7"
+    "@donkeyclip/motorcortex": ">=7 < 10"
   }
 }
