@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/donkeyclip/motorcortex-scroller/compare/v1.2.0...v1.3.0) (2022-04-29)
+
+
+### Features
+
+* update mc version to v9 ([7921f82](https://github.com/donkeyclip/motorcortex-scroller/commit/7921f8209ebbb6e5ad9817fc0917ba4305ea5513))
+
 ## [1.2.0](https://github.com/donkeyclip/motorcortex-scroller/compare/v1.1.7...v1.2.0) (2022-04-08)
 
 
