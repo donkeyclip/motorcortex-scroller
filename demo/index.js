@@ -1,9 +1,9 @@
-import MC from "@donkeyclip/motorcortex";
+import { HTMLClip, loadPlugin } from "@donkeyclip/motorcortex";
 import MCFlubber from "@donkeyclip/motorcortex-flubber";
 import Player from "../dist/motorcortex-scroller.esm.js";
-const FlubberPlugin = MC.loadPlugin(MCFlubber);
+const FlubberPlugin = loadPlugin(MCFlubber);
 
-const myClip = new MC.HTMLClip({
+const myClip = new HTMLClip({
   id: "my-clip",
   host: document.getElementById("clip-container"),
   html: `<svg xmlns="http://www.w3.org/2000/svg" width="960" height="500">
