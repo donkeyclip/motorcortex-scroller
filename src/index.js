@@ -1,5 +1,5 @@
-import MC from "@donkeyclip/motorcortex";
-const TimeCapsule = new MC.TimeCapsule();
+import { TimeCapsule, utils } from "@donkeyclip/motorcortex";
+const TC = new TimeCapsule();
 const prefix = "@donkeyclip/scrollbar_player";
 
 class Player {
@@ -28,13 +28,13 @@ class Player {
     const mode = options.mode || "free";
     if (mode === "free") {
       this.host.onwheel = this.handlePlainWheel.bind(this);
-      this.journey = TimeCapsule.startJourney(this.clip);
+      this.journey = TC.startJourney(this.clip);
       this.host.addEventListener("touchstart", this._touchstart.bind(this));
       this.host.addEventListener("touchmove", this._touchmove.bind(this));
     } else if (mode === "chapters") {
       this.transitionTimeout = null;
       this.transitionSpeed = options.transitionSpeed || 1;
-      this.easing = MC.utils.easings[options.easing || "easeOutQuart"];
+      this.easing = utils.easings[options.easing || "easeOutQuart"];
       this.transitionStart = null;
       options.chapters.sort(function (a, b) {
         return a.millisecond - b.millisecond;
@@ -128,7 +128,7 @@ class Player {
 
     this.previousTouch = event.touches[0][this.swipeAxis];
     let millisecondsDelta = 10 * distance * this.speed;
-    const journey = TimeCapsule.startJourney(this.clip);
+    const journey = TC.startJourney(this.clip);
     let newStation =
       this.clip.runTimeInfo.currentMillisecond + millisecondsDelta;
 
@@ -198,7 +198,7 @@ class Player {
 
     let millisecondsDelta = event.deltaY * this.speed;
 
-    const journey = TimeCapsule.startJourney(this.clip);
+    const journey = TC.startJourney(this.clip);
     let newStation =
       this.clip.runTimeInfo.currentMillisecond + millisecondsDelta;
 
@@ -230,7 +230,7 @@ class Player {
     this.transitionStart = null;
     this.targetMillisecond = millisecond;
     this.startMillisecond = this.clip.runTimeInfo.currentMillisecond;
-    this.journey = TimeCapsule.startJourney(this.clip);
+    this.journey = TC.startJourney(this.clip);
     this.direction =
       this.targetMillisecond >= this.startMillisecond ? "fw" : "bw";
     window.requestAnimationFrame(this._step.bind(this));

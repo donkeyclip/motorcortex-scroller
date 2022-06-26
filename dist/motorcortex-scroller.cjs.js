@@ -1,12 +1,8 @@
 'use strict';
 
-var MC = require('@donkeyclip/motorcortex');
+var motorcortex = require('@donkeyclip/motorcortex');
 
-function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
-
-var MC__default = /*#__PURE__*/_interopDefaultLegacy(MC);
-
-const TimeCapsule = new MC__default["default"].TimeCapsule();
+const TC = new motorcortex.TimeCapsule();
 const prefix = "@donkeyclip/scrollbar_player";
 
 class Player {
@@ -35,13 +31,13 @@ class Player {
 
     if (mode === "free") {
       this.host.onwheel = this.handlePlainWheel.bind(this);
-      this.journey = TimeCapsule.startJourney(this.clip);
+      this.journey = TC.startJourney(this.clip);
       this.host.addEventListener("touchstart", this._touchstart.bind(this));
       this.host.addEventListener("touchmove", this._touchmove.bind(this));
     } else if (mode === "chapters") {
       this.transitionTimeout = null;
       this.transitionSpeed = options.transitionSpeed || 1;
-      this.easing = MC__default["default"].utils.easings[options.easing || "easeOutQuart"];
+      this.easing = motorcortex.utils.easings[options.easing || "easeOutQuart"];
       this.transitionStart = null;
       options.chapters.sort(function (a, b) {
         return a.millisecond - b.millisecond;
@@ -137,7 +133,7 @@ class Player {
 
     this.previousTouch = event.touches[0][this.swipeAxis];
     let millisecondsDelta = 10 * distance * this.speed;
-    const journey = TimeCapsule.startJourney(this.clip);
+    const journey = TC.startJourney(this.clip);
     let newStation = this.clip.runTimeInfo.currentMillisecond + millisecondsDelta;
 
     if (newStation < 0) {
@@ -202,7 +198,7 @@ class Player {
     }
 
     let millisecondsDelta = event.deltaY * this.speed;
-    const journey = TimeCapsule.startJourney(this.clip);
+    const journey = TC.startJourney(this.clip);
     let newStation = this.clip.runTimeInfo.currentMillisecond + millisecondsDelta;
 
     if (newStation < 0) {
@@ -235,7 +231,7 @@ class Player {
     this.transitionStart = null;
     this.targetMillisecond = millisecond;
     this.startMillisecond = this.clip.runTimeInfo.currentMillisecond;
-    this.journey = TimeCapsule.startJourney(this.clip);
+    this.journey = TC.startJourney(this.clip);
     this.direction = this.targetMillisecond >= this.startMillisecond ? "fw" : "bw";
     window.requestAnimationFrame(this._step.bind(this));
   }
