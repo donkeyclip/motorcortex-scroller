@@ -71,7 +71,7 @@ class Player {
     }
 
     const scrollbarDiv = document.createElement("div");
-    scrollbarDiv.setAttribute("id", "".concat(prefix, "-scrollbarId"));
+    scrollbarDiv.setAttribute("id", `${prefix}-scrollbarId`);
     let cssAttrs;
     let variable;
 
@@ -97,12 +97,12 @@ class Player {
         break;
     }
 
-    scrollbarDiv.setAttribute("style", "".concat(cssAttrs, " position:absolute; background: ").concat(options.color, ";"));
+    scrollbarDiv.setAttribute("style", `${cssAttrs} position:absolute; background: ${options.color};`);
     this.host.appendChild(scrollbarDiv);
-    this.clip.subscribe("".concat(prefix, "_").concat(new Date().getTime()), (ms
+    this.clip.subscribe(`${prefix}_${new Date().getTime()}`, (ms
     /*, state*/
     ) => {
-      scrollbarDiv.style[variable] = "".concat(100 * ms / this.clip.duration, "%");
+      scrollbarDiv.style[variable] = `${100 * ms / this.clip.duration}%`;
     });
   }
 
