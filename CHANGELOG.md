@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 (2024-02-02)
+
+
+### Features
+
+* update mc version to v9 ([7921f82](https://github.com/donkeyclip/motorcortex-scroller/commit/7921f8209ebbb6e5ad9817fc0917ba4305ea5513))
+
+
+### Bug Fixes
+
+* import only effect instead of full MC ([de47598](https://github.com/donkeyclip/motorcortex-scroller/commit/de4759805b88a1c17ce279159114e9ad22f31edf))
+
 ## [1.3.1](https://github.com/donkeyclip/motorcortex-scroller/compare/v1.3.0...v1.3.1) (2022-06-26)
 
 
